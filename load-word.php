@@ -1,6 +1,7 @@
 <?php
 
 	$con = mysql_connect("localhost", "root", "root");
+	//$con = mysql_connect("127.10.251.130", "adminxdVKNJs", "lcTBWrP7Qm5V");
 	if(!$con){
 		die("fuck".mysql_error());
 	}

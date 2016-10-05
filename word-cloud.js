@@ -8,6 +8,7 @@ var max,
 
 var layout = d3.layout.cloud()
         .timeInterval(Infinity)
+        .padding(1.5) //here to change the padding
         .size([w, h])
         .fontSize(function(d) {
             return fontSize(+d.value);
@@ -71,6 +72,7 @@ function draw(data, bounds) {
             .style("fill", function(d) {
                 return fill(d.text.toLowerCase());
             })
+            .style("fill", "#130E06") //here to change the color
             .text(function(d) {
                 return d.text;
             });
@@ -79,7 +81,7 @@ function draw(data, bounds) {
 }
 
 function update() {
-    layout.font('impact').spiral('archimedean');
+    layout.font(/*'impact'*/'kingthings_trypewriter_2Rg').spiral('archimedean');
     fontSize = d3.scale['sqrt']().range([10, 100]);
     if (tags.length){
         fontSize.domain([+tags[tags.length - 1].value || 1, +tags[0].value]);
