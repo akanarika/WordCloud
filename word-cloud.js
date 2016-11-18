@@ -88,7 +88,7 @@ function update() {
     }
     layout.stop().words(tags).start();
 
-    setTimeout(function() { update()}, 10000);
+    setTimeout(function() { update()}, 20000);
 }
 
 

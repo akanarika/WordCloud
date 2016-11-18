@@ -33,7 +33,7 @@
                 xmlhttp.open("GET", "load-word.php?q="+str, false);
                 xmlhttp.send();
 
-                document.getElementById("submitted").innerHTML = "Thanks! Your story is being encoded...";
+                /*document.getElementById("submitted").innerHTML = "Thanks! Your story is being encoded...";*/
                 setTimeout(function() {
                     document.location.reload(true);
                 }, 1000);
@@ -41,40 +41,34 @@
                 window.opener.location.reload();
         }
         </script>
-        <script type="text/javascript" src="jQuery.js"></script>
-        <script>
-            $(document).one('focus.textarea', '.autoExpand', function(){
-                var savedValue = this.value;
-                this.value = '';
-                this.baseScrollHeight = this.scrollHeight;
-                this.value = savedValue;
-                })
-            .on('input.textarea', '.autoExpand', function(){
-            var minRows = this.getAttribute('data-min-rows')|0,
-                 rows;
-            this.rows = minRows;
-        console.log(this.scrollHeight , this.baseScrollHeight);
-            rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 17);
-            this.rows = minRows + rows;
-        });
-        </script>
-
 
     </head>
-    <body style="position: fixed; bottom: 0; width: 100%; margin: 0px;">
-        <!-- <div id="canvas"></div>
-         --><div style="display: block; margin-left: auto; margin-right:auto; padding:0; margin-bottom:0px; height: 100%" >
+    <body class = "bg">
+        <div style="display: block; margin-left: auto; margin-right:auto; padding:0; margin-bottom:0px; height: 100%" >
             <div id="letter">
-                <textarea class="autoExpand" id="input_text" placeholder="Write your story here..." data-min-rows='1' row="1" cols="60"></textarea>
-                <div id="input_placeholder"></div>
+                <textarea id="input_text" placeholder="Tell me about your day..." data-min-rows='1' row="1"></textarea>
             </div>
-            <input id="submit" type="button" value="DONE" onclick="load()" >
-            <p id="submitted"></p>
+
+            <div id="buttons">
+                <input id="bt_submit" type="submit" value="" onclick="load()">
+                <input id="bt_discard" type="submit" value="" onclick="document.getElementById('input_text').value=''; document.getElementById('input_text').style.height='56px';">
+            </div>
         </div>
-        <!--<script type="text/javascript" src="word-cloud.js"></script>-->
         
     </body>
     <script>
         document.getElementById('input_text').focus();
     </script>
+    <script>
+        var text_area = document.getElementById("input_text");
+        text_area.addEventListener('keydown', autosize);
+             
+        function autosize(){
+          var el = this;
+          setTimeout(function(){
+            el.style.cssText = 'height:auto; padding:0';
+            el.style.cssText = 'height:' + el.scrollHeight + 'px';
+          },0);
+        }
+        </script>
 </html>

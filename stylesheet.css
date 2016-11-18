@@ -14,3 +14,18 @@ body {
 	background-image: url(assets/paper.png); //wordcloud background
 }
 
+#typebutton {
+	position: fixed;
+	bottom: 0px;
+	left:2px;
+}
+
+#stories {
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	height: 70%;
+	width: 60%;
+	font-family: 'kingthings_trypewriter_2Rg';
+    font-size: 30px;
+}

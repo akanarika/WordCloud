@@ -10,15 +10,32 @@
 
 }
 
+html {
+	background: url(assets/bg.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% 100%;
+}
+
 body {
 	padding: 0;
 	margin-bottom: 0;
-	background-image: url(assets/mooning.png); #type background 
+}
+
+div#letter {
+	position: fixed;
+	bottom: 6%;
+	left: 0%;
+	/* margin-right: -50%; */
+	/*transform: translate(0%, -30%);*/
+	width: 100%;
 }
 
 textarea#input_text {
 	display: block; 
 	margin:auto;
+	width: 20%;
 	box-sizing: padding-box;
 	overflow: hidden;
 	border: none;
@@ -30,11 +47,10 @@ textarea#input_text {
 	color: #130E06;
 	outline: none;
 	resize: none;
-
 	-webkit-box-shadow:0 -2px 8px rgba(0, 0, 0, 0.3), 0 0 0px rgba(0, 0, 0, 0.1) inset;
        -moz-box-shadow:0 -2px 8px rgba(0, 0, 0, 0.3), 0 0 0px rgba(0, 0, 0, 0.1) inset;
             box-shadow:0 -2px 8px rgba(0, 0, 0, 0.3), 0 0 0px rgba(0, 0, 0, 0.1) inset;
-    padding: 100px;
+    padding: 80px;
     min-height: 56px;
     line-height: 1.2;
 }
@@ -72,5 +88,70 @@ div#input_placeholder{
 
 #submitted {
 	font-family: 'kingthings_trypewriter_2Rg'; font-size: 14px; margin-left:40%; width:20%;
+}
+
+#buttons {
+	position: fixed;
+	bottom: 1%;
+	left: 50%;
+	margin-left: 62px;
+}
+
+#bt_submit {
+	border:0;
+	width: 114px;
+	height: 61px;
+	background: url(assets/button_submit.png) no-repeat;
+	background-size:cover;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#bt_submit:hover {
+	border:0;
+	width: 114px;
+	height: 61px;
+	background: url(assets/button_submit_hover.png) no-repeat;
+	background-size:cover;
+	cursor: pointer;
+}
+
+#bt_submit:active {
+	border:0;
+	width: 114px;
+	height: 61px;
+	background: url(assets/button_submit_click.png) no-repeat;
+	background-size:cover;
+	cursor: pointer;
+}
+
+#bt_discard {
+	border:0;
+	width: 114px;
+	height: 61px;
+	background: url(assets/button_discard.png) no-repeat;
+	background-size:cover;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#bt_discard:hover {
+	border:0;
+	width: 114px;
+	height: 61px;
+	background: url(assets/button_discard_hover.png) no-repeat;
+	background-size:cover;
+	cursor: pointer;
+}
+
+#bt_discard:active {
+	border:0;
+	width: 114px;
+	height: 61px;
+	background: url(assets/button_discard_click.png) no-repeat;
+	background-size:cover;
+	cursor: pointer;
 }
 

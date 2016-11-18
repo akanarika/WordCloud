@@ -83,6 +83,7 @@
 				'come',
 				'did',
 				'no',
+				'not',
 				'my',
 				'over',
 				'than',
