@@ -8,7 +8,9 @@
 
 	$str = $_GET["q"];
 	mysql_select_db("wordcloud", $con);
-	mysql_query("INSERT INTO story(text) VALUES ('".$str."');");
+	if($str != ""){
+		mysql_query("INSERT INTO story(text) VALUES ('".$str."');");
+	}
 
 	$arr = preg_split('/\s*[,:;!?.-\s]\s*/u', $str);
 

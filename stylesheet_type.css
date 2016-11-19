@@ -86,8 +86,16 @@ div#input_placeholder{
 	margin-bottom: 0px;
 }
 
-#submitted {
-	font-family: 'kingthings_trypewriter_2Rg'; font-size: 14px; margin-left:40%; width:20%;
+#submitted, #discarded {
+	font-family: 'kingthings_trypewriter_2Rg';
+	font-size: 34px;
+	text-align: center;
+	left: 40%;
+	width: 20%;
+	position: fixed;
+	top: 50%;
+	display: none;
+	transition: opacity 1s ease-out;
 }
 
 #buttons {
