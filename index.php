@@ -76,6 +76,7 @@
         </script>
 
         <script src="jQuery.js"></script>
+        <script type="text/javascript" src="jQueryUI.js"></script>
 
     </head>
     <body> 
@@ -94,19 +95,19 @@
             function(){setInterval(function(){
                 var the_story = stories[Math.floor(Math.random() * stories.length)];
                 var len = the_story.length;
-                while(len < 100){
+                while(len < 100 || len > 900){
                     the_story = stories[Math.floor(Math.random() * stories.length)];
                     len = the_story.length;
                 }
-                document.getElementById("stories").style.fontSize =(40 + Math.max( -10, Math.min( (500 - len) * 0.1, 10))).toString()+"px";
+                document.getElementById("stories").style.fontSize =(35 + Math.max(-13, Math.min( (500 - len) * 0.1, 10))).toString()+"px";
                 document.getElementById("stories").innerHTML = the_story;
                 $("#canvas").fadeOut();
                 $("#stories").fadeIn();
                 setTimeout(function(){
                     $("#canvas").fadeIn();
                     $("#stories").fadeOut();
-                },16000);
-            }, 36000);
+                }, Math.min(40000, 20000 + len * 10));
+            }, 50000);
             });
             
         </script>

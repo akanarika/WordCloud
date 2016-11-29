@@ -8,9 +8,10 @@
         <script type="text/javascript" src="d3.layout.cloud.js"></script>
         -->
 
-        <script type="text/javascript">
-            var tags = <?php echo(json_encode($pairArr)) ?>;
-        </script>
+
+
+        <script src="jQuery.js"></script>
+        <script type="text/javascript" src="jQueryUI.js"></script>
 
         <script type="text/javascript">
         function load(){
@@ -25,15 +26,13 @@
                     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
                 }
                 xmlhttp.onreadystatechange=function(){
-                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
-                    {
-                        tags = <?php echo(json_encode($pairArr)) ?>;
-                    }
+
                 }
                 xmlhttp.open("GET", "load-word.php?q="+str, false);
                 xmlhttp.send();
 
-                /*document.getElementById("submitted").innerHTML = "Thanks! Your story is being encoded...";*/
+                document.getElementById('submitted').style.display = 'block';
+                $('#submitted').fadeOut(1000);
                 setTimeout(function() {
                     document.location.reload(true);
                 }, 1000);
@@ -46,13 +45,24 @@
     <body class = "bg">
         <div style="display: block; margin-left: auto; margin-right:auto; padding:0; margin-bottom:0px; height: 100%" >
             <div id="letter">
-                <textarea id="input_text" placeholder="Tell me about your day..." data-min-rows='1' row="1"></textarea>
+                <textarea id="input_text" placeholder="Tell me your story..." data-min-rows='1' row="1"></textarea>
             </div>
 
             <div id="buttons">
                 <input id="bt_submit" type="submit" value="" onclick="load()">
-                <input id="bt_discard" type="submit" value="" onclick="document.getElementById('input_text').value=''; document.getElementById('input_text').style.height='56px';">
+                <input id="bt_discard" type="submit" value="" onclick="document.getElementById('input_text').value=''; document.getElementById('input_text').style.height='56px';document.getElementById('input_text').focus();document.getElementById('discarded').style.display = 'block';setTimeout(function(){$('#discarded').fadeOut(1000);},500);">
             </div>
+
+            <div id="submitted" style="color:white">
+                <strong>Submitted!</strong>
+            </div>
+            <div id="discarded" style="color:white">
+                <strong>Discarded!</strong>
+            </div>
+
+            <div id="homepage" style="display: none;">
+            </div>
+
         </div>
         
     </body>
@@ -70,5 +80,11 @@
             el.style.cssText = 'height:' + el.scrollHeight + 'px';
           },0);
         }
+
+        $( document ).ready(function() {
+             $("#bt_submit").click(function(){
+              $( " index.php #canvas" ).effect( "shake" );
+            });
+         });
         </script>
 </html>
