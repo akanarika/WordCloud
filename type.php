@@ -9,9 +9,10 @@
         -->
 
 
-
+        <script type="text/javascript">
+            var tags = <?php echo(json_encode($pairArr)) ?>;
+        </script>
         <script src="jQuery.js"></script>
-        <script type="text/javascript" src="jQueryUI.js"></script>
 
         <script type="text/javascript">
         function load(){
@@ -59,11 +60,8 @@
             <div id="discarded" style="color:white">
                 <strong>Discarded!</strong>
             </div>
-
-            <div id="homepage" style="display: none;">
-            </div>
-
         </div>
+            
         
     </body>
     <script>
